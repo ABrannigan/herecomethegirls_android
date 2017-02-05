@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.HereComeTheGirls.example.android.datastream.pubnubdatastreams.MainActivity">
+
+    <item android:id="@+id/action_logout" android:title="Log out"
+        android:orderInCategory="1" />
+
+</menu>

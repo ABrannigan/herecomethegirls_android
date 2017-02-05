@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.herecomethegirls.abrannigan.android.datastream.datastreams.LoginActivity"
+    android:baselineAligned="false">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Log In"
+        android:id="@+id/textView"
+        tools:layout_editor_absoluteY="62dp"
+        app:layout_constraintRight_toRightOf="@+id/usernameEdit"
+        app:layout_constraintLeft_toLeftOf="@+id/usernameEdit"
+        app:layout_constraintHorizontal_bias="0.43" />
+
+
+    <EditText
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameEdit"
+        android:textSize="16sp"
+        android:hint="username"
+        tools:layout_editor_absoluteX="82dp"
+        app:layout_constraintBottom_toTopOf="@+id/goBtn"
+        android:layout_marginBottom="16dp">
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="Go!"
+        android:id="@+id/goBtn"
+        android:onClick="joinChat"
+        tools:layout_editor_absoluteX="74dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33" />
+
+</android.support.constraint.ConstraintLayout>
