@@ -1,47 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/teal"
+
+
     tools:context="com.herecomethegirls.abrannigan.android.datastream.datastreams.LoginActivity"
     android:baselineAligned="false">
 
     <TextView
+        android:text="@string/login"
+        android:textSize="35sp"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Log In"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/purple"
         android:id="@+id/textView"
-        tools:layout_editor_absoluteY="62dp"
-        app:layout_constraintRight_toRightOf="@+id/usernameEdit"
-        app:layout_constraintLeft_toLeftOf="@+id/usernameEdit"
-        app:layout_constraintHorizontal_bias="0.43" />
-
-
-    <EditText
-        android:layout_width="179dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/usernameEdit"
-        android:textSize="16sp"
-        android:hint="username"
-        tools:layout_editor_absoluteX="82dp"
-        app:layout_constraintBottom_toTopOf="@+id/goBtn"
-        android:layout_marginBottom="16dp">
-
-        <requestFocus />
-    </EditText>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
     <Button
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:text="Go!"
-        android:id="@+id/goBtn"
-        android:onClick="joinChat"
-        tools:layout_editor_absoluteX="74dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/login_submit"
+        android:textSize="25sp"
+        android:textColor="#FFF"
+        android:background="@color/purple"
+        android:layout_above="@+id/imageView"
+        android:layout_marginBottom="35dp"
+        android:onClick="joinChat"/>
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+
+        android:id="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+         />
+
+    <EditText
+        android:hint="@string/username"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:textSize="30sp"
+        android:textColor="#333"
+        android:gravity="center"
+        android:id="@+id/login_username"
+
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/channelEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:hint="@string/channel_hint"
+        android:textColor="@color/red"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/login_username"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

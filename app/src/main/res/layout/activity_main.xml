@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:paddingBottom="0dp"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="0dp"
-    tools:context="com.herecomethegirls.abrannigan.android.datastream.datastreams.MainActivity">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
+    <TextView
+        android:id="@+id/chat"
+        style="@style/CategoryStyle"
+        android:background="@color/light_blue"
+        android:text="@string/category_chat"
+        android:gravity="center"
+        android:layout_weight="50"/>
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="6dp"
-        android:minHeight="?attr/actionBarSize"
-        />
+        android:layout_gravity="center"
+        android:background="@color/yelow"
+        android:gravity="center"
+        android:onClick="shareLocation"
+        android:padding="40dp"
+        android:text="@string/share_button"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:layout_weight="50.15"/>
 
-    <android.support.v4.view.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
+    <Button
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/purple"
+        android:gravity="center"
+        android:onClick="followLocation"
+        android:padding="40dp"
+        android:text="@string/follow_button"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:layout_weight="50.56"/>
+
 
 </LinearLayout>
