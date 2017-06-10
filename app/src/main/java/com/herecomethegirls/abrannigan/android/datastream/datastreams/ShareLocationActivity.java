@@ -51,6 +51,7 @@ public class ShareLocationActivity extends AppCompatActivity implements
     private Pubnub mPubnub;
     private String channelName;
 
+
     // =============================================================================================
     // Activity Life Cycle
     // =============================================================================================

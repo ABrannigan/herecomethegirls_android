@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -29,6 +30,8 @@ public class LoginActivity extends Activity {
         mUsername = (EditText) findViewById(R.id.login_username);
 
         channelEditText = (EditText) findViewById(R.id.channelEditText);
+
+       // ImageView image = (ImageView) findViewById(R.id.imageView2);
 
 
         channelEditText.setOnKeyListener(new View.OnKeyListener() {

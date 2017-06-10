@@ -5,8 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="light_blue">#007AFF</color>
+    <color name="light_blue">#4245B1</color>
     <color name="red">#FF0000</color>
+    <color name="orange">#fece43</color>
+    <color name="orange_light">#FFE391</color>
+
+
 
     <!-- Primary color of the app (shown in the app bar) -->
     <color name="primary_color">#4A312A</color>
@@ -31,7 +35,7 @@
 
 
     <color name="purple">#9C27B0</color>
-    <color name="pn_blue">#ff19a2c6</color>
+    <color name="pn_blue">#4245b1</color>
     <color name="yelow">#d9ff00</color>
     <color name="teal">#009688</color>
 
