@@ -1,14 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+        }
+    }
     compileSdkVersion 24
-    buildToolsVersion "21.1.2"
-
+    buildToolsVersion '25.0.0'
     defaultConfig {
-        applicationId "com.herecomethegirls.abrannigan.android.datastream.com.herecomethegirls.abrannigan.android.datastream.datastreams"
+        applicationId "com.herecomethegirls.abrannigan.android.datastream.datastreams"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 1
+        versionCode 3
         versionName "1.0"
         multiDexEnabled true
     }
@@ -18,8 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-
     dependencies {
         compile fileTree(include: ['*.jar'], dir: 'libs')
         testCompile 'junit:junit:4.12'
@@ -32,6 +33,18 @@ android {
         compile 'com.android.support:appcompat-v7:24.0.0'
         compile 'com.android.support:design:24.0.0'
         compile 'com.android.support:support-v4:24.0.0'
+        compile 'com.android.support:appcompat-v7:24.0.0'
+        compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+        compile 'com.google.android.gms:play-services-maps:9.2.0'
+        compile 'com.google.android.gms:play-services-location:9.2.0'
+        compile 'com.google.maps.android:android-maps-utils:0.4.+'
+        compile 'com.google.android.gms:play-services-ads:9.2.0'
+        compile 'com.google.android.gms:play-services-auth:9.2.0'
+        compile 'com.google.android.gms:play-services-gcm:9.2.0'
+        compile 'com.google.firebase:firebase-invites:9.2.0'
+        compile 'com.google.firebase:firebase-invites:9.2.0'
+
+
     }
     //had to exclude due to duplicate files in dependancies
     packagingOptions {
@@ -42,22 +55,18 @@ android {
         exclude 'META-INF/license'
         exclude 'META-INF/license.txt'
 
-    }
 
+    }
+    configurations {
+        //all*.exclude group: 'com.nineoldandroids', module: 'library'
+        all*.exclude group: 'org.json', module: 'json'
+    }
 }
+
+
+
 
 dependencies {
-    //compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    //compile 'com.google.android.gms:play-services:6.5.87'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
-
-    compile 'com.google.android.gms:play-services-maps:9.2.0'
-    compile 'com.google.android.gms:play-services-location:9.2.0'
-    compile 'com.google.maps.android:android-maps-utils:0.4+'
-
-    compile 'com.google.android.gms:play-services-ads:9.2.0'
-    compile 'com.google.android.gms:play-services-auth:9.2.0'
-    compile 'com.google.android.gms:play-services-gcm:9.2.0'
-
+    compile 'com.google.firebase:firebase-invites:9.2.0'
 }
+apply plugin: 'com.google.gms.google-services'

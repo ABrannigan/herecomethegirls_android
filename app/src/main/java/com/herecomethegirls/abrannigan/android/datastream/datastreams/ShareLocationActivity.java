@@ -2,11 +2,11 @@ package com.herecomethegirls.abrannigan.android.datastream.datastreams;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.annotation.RequiresPermission;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +25,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.pubnub.api.Pubnub;
-import com.pubnub.api.Callback;
+
+import static com.herecomethegirls.abrannigan.android.datastream.datastreams.Constants.CHAT_USERNAME;
 
 public class ShareLocationActivity extends AppCompatActivity implements
         OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, LocationListener {
@@ -50,6 +51,8 @@ public class ShareLocationActivity extends AppCompatActivity implements
     // PubNub
     private Pubnub mPubnub;
     private String channelName;
+    private String msgUserName;
+    //private SharedPreferences mSharedPrefs;
 
 
     // =============================================================================================
@@ -66,6 +69,13 @@ public class ShareLocationActivity extends AppCompatActivity implements
         channelName = intent.getExtras().getString("channel");
         Log.d(TAG, "Passed Channel Name: " + channelName);
 
+        //get username
+        //Intent intent = getIntent();
+       //mSharedPrefs = getSharedPreferences(Constants.CHAT_PREFS, MODE_PRIVATE);
+       //msgUserName = mSharedPrefs.getString(Constants.CHAT_USERNAME,"Anonymous");
+
+        //Log.d(TAG, "Passed Channel Name: " + channelName);
+
         // Start Google Client
         this.buildGoogleApiClient();
 
@@ -80,6 +90,7 @@ public class ShareLocationActivity extends AppCompatActivity implements
 
         // Start PubNub
         mPubnub = PubNubManager.startPubnub();
+       // msgUserName = this.mPubnub.getUUID();
     }
 
     @Override
@@ -108,7 +119,7 @@ public class ShareLocationActivity extends AppCompatActivity implements
                 != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
+
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_ACCESS_FINE_LOCATION);
@@ -131,7 +142,7 @@ public class ShareLocationActivity extends AppCompatActivity implements
                     != PackageManager.PERMISSION_GRANTED &&
                     ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                             != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
+
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_ACCESS_FINE_LOCATION);
@@ -155,7 +166,7 @@ public class ShareLocationActivity extends AppCompatActivity implements
 
         // Broadcast information on PubNub Channel
         PubNubManager.broadcastLocation(mPubnub, channelName, location.getLatitude(),
-                location.getLongitude(), location.getAltitude());
+                location.getLongitude(), location.getAltitude(),msgUserName=(Constants.JSON_USER));
 
         // Update Map
         updateCamera();
@@ -184,11 +195,11 @@ public class ShareLocationActivity extends AppCompatActivity implements
                 mRequestingLocationUpdates = !mRequestingLocationUpdates;
                 if (mRequestingLocationUpdates) {
                     startSharingLocation();
-                    mShareButton.setTitle("Stop Sharing Your Location");
+                    mShareButton.setTitle("Stop Sharing Location");
                 }
                 if (!mRequestingLocationUpdates) {
                     stopSharingLocation();
-                    mShareButton.setTitle("Start Sharing Your Location");
+                    mShareButton.setTitle("Share Location");
                 }
                 return true;
             default:

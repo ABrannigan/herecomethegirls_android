@@ -10,8 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -21,6 +22,9 @@ public class LoginActivity extends Activity {
     private EditText channelEditText;
     private String channelName;
     private static final String TAG = "Tracker";
+    private Pattern pattern;
+    private Matcher matcher;
+    private static final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,31 +82,23 @@ public class LoginActivity extends Activity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     /**
-     * Takes the username from the EditText, check its validity and saves it if valid.
+     * Takes the username from the EditText, and channel from channelEdittext check its validity and saves it if valid.
      *   Then, redirects to the MainActivity.
-     * view Button clicked to trigger call to joinChat
+     *
      */
     public void joinChat(View view){
         String username = mUsername.getText().toString();
         String channel = channelEditText.getText().toString();
         if (!validUsername(username))
             return;
+        if(!validChannelName(channel)){
+            channelEditText.setError("Group key  must contain uppercase & lowercase letters, " +
+                    "special symbols & be between 8-20 Characters");
+            return;
+        }
 
         SharedPreferences sp = getSharedPreferences(Constants.CHAT_PREFS,MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
@@ -116,6 +112,7 @@ public class LoginActivity extends Activity {
 
     }
 
+    //username validation method
 
     private boolean validUsername(String username) {
         if (username.length() == 0) {
@@ -128,6 +125,21 @@ public class LoginActivity extends Activity {
         }
         return true;
     }
+
+    //channel validation method
+    private boolean validChannelName(String channel) {
+
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(channel);
+
+        return matcher.matches();
+
+
+    }
+
+
+
+
 
 
 

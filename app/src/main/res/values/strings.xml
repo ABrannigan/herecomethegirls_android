@@ -5,10 +5,10 @@
 
     <string name="channel_name">Channel: </string>
     <string name="share_button">Share Location</string>
-    <string name="follow_button">View Friend\'s Location</string>
+    <string name="follow_button">Friend\'s Location</string>
     <string name="gmaps">Google Maps</string>
 
-    <string name="channel_hint">Please Create Secret Group Key</string>
+    <string name="channel_hint">Secret Group Key</string>
 
     <string name="title_activity_main">MainActivity</string>
 
@@ -24,8 +24,8 @@
     <string name="action_sign_out">Sign Out</string>
     <string name="here_now">Here Now:</string>
 
-    <string name="share_location">Start Sharing Your Location</string>
-    <string name="follow_location">Start Viewing Your Friend\'s Location</string>
+    <string name="share_location">Share Location</string>
+    <string name="follow_location">View Friend\'s Location</string>
 
 
 
@@ -35,6 +35,12 @@
     <string name="action_gcm_unregister">Unregister</string>
     <string name="title_activity_login">Login</string>
     <string name="login">Choose a username:</string>
-    <string name="login_submit">Join the Chat!</string>
+    <string name="login_submit">Join!</string>
+    <string name="invitation_title">Send Invitations</string>
+    <string name="invitation_message">_wants you to download hen app &amp; enter Group key:</string>
+    <string name="invitation_cta" >Group Key</string>
+    <string name="invitation_deep_link" >https://herecomethegirlis.000webhostapp.com</string>
+    <string name="invitation_custom_image" > invitation_custom_image </string>
+    <string name="htmlContent" ></string>
 
 </resources>
